@@ -30,3 +30,12 @@ const customReadFile = (fileName) => {
     })
   })
 }
+
+/*
+PROMISIFY
+
+var Promise = require("bluebird")
+var fs = require("fs")
+Promise.promisifyAll(fs)
+fs.readFileAsync("file.js", "utf8").then(...)
+*/

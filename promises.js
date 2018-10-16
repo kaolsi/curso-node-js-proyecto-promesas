@@ -1,31 +1,4 @@
-const opositores = [{
-  id: 1,
-  nombre: 'Pepe',
-  especialidad: 'Informática'
-}, {
-  id: 2,
-  name: 'Leyre',
-  especialidad: 'Sistemas y aplicaciones informáticas'
-}]
-
-const notas = [{
-  id: 1,
-  prueba: 'Práctica',
-  nota: 3.5
-}, {
-  id: 1,
-  prueba: 'Teórica',
-  nota: 6.5
-}, {
-  id: 2,
-  prueba: 'Práctica',
-  nota: 3.5
-}, {
-  id: 2,
-  prueba: 'Teórica',
-  nota: 6.5
-}
-]
+const { opositores, notas } = require('./datos.js')
 
 // crea promesa para obtener los datos del opositor 1
 const getOpositor = (id) => {
@@ -88,6 +61,7 @@ getNotas(1)
     })
     .catch(err => console.log(err))
 } */
+
 const getResultado = (id) => {
   const datosOpositor = getOpositor(1)
   const notasOpositor = getNotas(1)
