@@ -63,18 +63,26 @@ getNotas(1)
 } */
 
 const getResultado = (id) => {
-  const datosOpositor = getOpositor(1)
-  const notasOpositor = getNotas(1)
-  Promise.all([datosOpositor(id)], [notasOpositor(id)])
+  // const notasOpositor = getNotas(1)
+  Promise.all([getOpositor(id), getNotas(id)])
     .then(datos => {
+      const { nombre } = datos[0]
+      const nota = datos[1]
+        .map(nota => nota.nota)
+        .reduce((sum, x) => (sum + x) / datos[1].length)
+      console.log(nombre)
+      console.log(nota)
+    })
+    .catch(err => console.log(err))
+    /* .then(datos => {
       const nombre = datos[0].nombre // const {nombre} = datos[0]
       const nota = datos[1].map((notas) => nota.nota).reduce((sum, x) => (sum + x) / datos[1].length)
       console.log(nombre)
       console.log(nota)
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)) */
 }
 
 getResultado(1)
-  .then(() => console.log('Ha ido bien'))
-  .catch(err => console.log(err))
+/* .then(() => console.log('Ha ido bien'))
+  .catch(err => console.log(err)) */
